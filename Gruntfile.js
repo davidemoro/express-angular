@@ -227,6 +227,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
+            '*.html', 'views/*.html',
             '.htaccess',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
@@ -252,8 +253,8 @@ module.exports = function (grunt) {
       dist: [
         'coffee',
         'imagemin',
-        'svgmin',
-        'htmlmin'
+        'svgmin'
+        //'htmlmin'
       ]
     },
     karma: {
