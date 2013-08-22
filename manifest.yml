@@ -1,0 +1,14 @@
+--- 
+applications: 
+  .: 
+    mem: 64M
+    framework: 
+      info: 
+        description: NodeJS, Express, AngularJS Application
+        exec: 
+        mem: 64M
+      name: node
+    instances: 1
+    url: ${name}.${target-base}
+    infra: eu-aws
+    name: express-angular
