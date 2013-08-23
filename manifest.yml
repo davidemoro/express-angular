@@ -11,4 +11,4 @@ applications:
     instances: 1
     url: ${name}.${target-base}
     infra: eu-aws
-    name: node-express
+    name: express-angular
