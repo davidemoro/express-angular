@@ -12,7 +12,6 @@ var app = express();
 
 // all environments
 app.set('port', process.env.VCAP_APP_PORT || 3000);
-app.set('views', __dirname + '/app');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(express.favicon());
@@ -23,10 +22,12 @@ app.use(app.router);
 
 // development only
 if ('development' == app.get('env')) {
+app.set('views', __dirname + '/app');
   app.use(express.static(path.join(__dirname, 'app')));
   app.use(express.errorHandler());
 }
 else {
+app.set('views', __dirname + '/dist');
   app.use(express.static(path.join(__dirname, 'dist')));
 }
 
