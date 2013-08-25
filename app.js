@@ -20,14 +20,15 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 
-// development only
-if ('development' == app.get('env')) {
-app.set('views', __dirname + '/app');
+if ('production' !== process.env.status) {
+  // development only
+  app.set('views', __dirname + '/app');
   app.use(express.static(path.join(__dirname, 'app')));
   app.use(express.errorHandler());
 }
 else {
-app.set('views', __dirname + '/dist');
+  // production
+  app.set('views', __dirname + '/dist');
   app.use(express.static(path.join(__dirname, 'dist')));
 }
 
